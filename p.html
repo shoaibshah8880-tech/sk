@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shoaib - Computer Skills Portfolio</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #0f172a;
+            color: white;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: #020617;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar-brand {
+            color: #00eaff !important;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .nav-link {
+            color: white !important;
+            margin: 0 8px;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #00eaff !important;
+            transform: translateY(-3px);
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(135deg, #0f172a, #172554, #020617);
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            font-weight: bold;
+            animation: slideDown 1.5s ease;
+        }
+
+        .hero h1 span {
+            color: #00eaff;
+        }
+
+        .hero p {
+            font-size: 22px;
+            color: #cbd5e1;
+            animation: fadeIn 2s ease;
+        }
+
+        .btn-custom {
+            background: #00eaff;
+            color: #020617;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: bold;
+            border: none;
+            margin-top: 20px;
+            transition: 0.4s;
+            animation: bounce 2s infinite;
+        }
+
+        .btn-custom:hover {
+            background: white;
+            transform: scale(1.1);
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #00eaff;
+            font-size: 38px;
+            margin-bottom: 50px;
+            font-weight: bold;
+        }
+
+        /* About */
+        .about-box {
+            background: #1e293b;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 0 25px rgba(0, 234, 255, 0.15);
+            animation: fadeUp 1.5s ease;
+        }
+
+        /* Skills */
+        .skill-card {
+            background: #1e293b;
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: 20px;
+            margin-bottom: 25px;
+            transition: 0.5s;
+            border: 1px solid transparent;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            border-color: #00eaff;
+            box-shadow: 0 0 25px rgba(0, 234, 255, 0.3);
+        }
+
+        .skill-icon {
+            font-size: 55px;
+            margin-bottom: 15px;
+            color: #00eaff;
+        }
+
+        .skill-card h3 {
+            color: white;
+        }
+
+        .progress {
+            height: 10px;
+            background: #334155;
+            margin-top: 15px;
+        }
+
+        .progress-bar {
+            background: #00eaff;
+        }
+
+        /* Projects */
+        .project-card {
+            background: #1e293b;
+            padding: 25px;
+            border-radius: 20px;
+            transition: 0.4s;
+            height: 100%;
+        }
+
+        .project-card:hover {
+            transform: rotateY(5deg) translateY(-10px);
+            box-shadow: 0 0 30px rgba(0, 234, 255, 0.3);
+        }
+
+        .project-card h3 {
+            color: #00eaff;
+        }
+
+        /* Contact */
+        .contact-box {
+            max-width: 650px;
+            margin: auto;
+            background: #1e293b;
+            padding: 35px;
+            border-radius: 20px;
+        }
+
+        .form-control {
+            background: #0f172a;
+            border: 1px solid #475569;
+            color: white;
+            padding: 13px;
+            margin-bottom: 15px;
+        }
+
+        .form-control:focus {
+            background: #0f172a;
+            color: white;
+            border-color: #00eaff;
+            box-shadow: 0 0 10px rgba(0, 234, 255, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: #020617;
+            text-align: center;
+            padding: 25px;
+            color: #94a3b8;
+        }
+
+        /* Animations */
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-80px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        /* Floating animation */
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" href="#">Shoaib Portfolio</a>
+
+        <button class="navbar-toggler bg-light" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#home">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#skills">Skills</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#projects">Projects</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<!-- Hero -->
+<section class="hero" id="home">
+    <div>
+        <h1>Hello, I'm <span>Shoaib</span></h1>
+
+        <p>Computer Skills & Web Development Portfolio</p>
+
+        <p>
+            HTML | CSS | JavaScript | Bootstrap
+        </p>
+
+        <a href="#skills">
+            <button class="btn-custom">View My Skills</button>
+        </a>
+    </div>
+</section>
+
+
+<!-- About -->
+<section id="about">
+    <div class="container">
+
+        <h2 class="section-title">About Me</h2>
+
+        <div class="about-box text-center">
+            <h3 class="mb-3">Computer Skills Student</h3>
+
+            <p>
+                My name is Shoaib. I am interested in computer skills
+                and web development. I can create modern and responsive
+                websites using HTML, CSS, JavaScript and Bootstrap.
+            </p>
+
+            <p>
+                I also enjoy creating websites with animations and
+                attractive designs.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- Skills -->
+<section id="skills">
+    <div class="container">
+
+        <h2 class="section-title">My Computer Skills</h2>
+
+        <div class="row">
+
+            <!-- HTML -->
+            <div class="col-md-6 col-lg-3">
+                <div class="skill-card floating">
+
+                    <div class="skill-icon">🌐</div>
+
+                    <h3>HTML</h3>
+
+                    <p>Website Structure</p>
+
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 90%;">
+                        </div>
+                    </div>
+
+                    <p class="mt-2">90%</p>
+
+                </div>
+            </div>
+
+
+            <!-- CSS -->
+            <div class="col-md-6 col-lg-3">
+                <div class="skill-card floating">
+
+                    <div class="skill-icon">🎨</div>
+
+                    <h3>CSS</h3>
+
+                    <p>Design & Animation</p>
+
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 85%;">
+                        </div>
+                    </div>
+
+                    <p class="mt-2">85%</p>
+
+                </div>
+            </div>
+
+
+            <!-- JavaScript -->
+            <div class="col-md-6 col-lg-3">
+                <div class="skill-card floating">
+
+                    <div class="skill-icon">⚡</div>
+
+                    <h3>JavaScript</h3>
+
+                    <p>Website Functionality</p>
+
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 75%;">
+                        </div>
+                    </div>
+
+                    <p class="mt-2">75%</p>
+
+                </div>
+            </div>
+
+
+            <!-- Bootstrap -->
+            <div class="col-md-6 col-lg-3">
+                <div class="skill-card floating">
+
+                    <div class="skill-icon">🚀</div>
+
+                    <h3>Bootstrap</h3>
+
+                    <p>Responsive Design</p>
+
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 80%;">
+                        </div>
+                    </div>
+
+                    <p class="mt-2">80%</p>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- Projects -->
+<section id="projects">
+    <div class="container">
+
+        <h2 class="section-title">My Projects</h2>
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+                <div class="project-card">
+                    <h3>🌐 Website</h3>
+                    <p>
+                        Modern responsive website using HTML and CSS
+                        with animation effects.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="project-card">
+                    <h3>🧴 Perfume Website</h3>
+                    <p>
+                        Attractive perfume website with products,
+                        gallery and animated design.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="project-card">
+                    <h3>🚗 Auto Parts</h3>
+                    <p>
+                        Auto parts website design using HTML,
+                        CSS, JavaScript and Bootstrap.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- Contact -->
+<section id="contact">
+    <div class="container">
+
+        <h2 class="section-title">Contact Me</h2>
+
+        <div class="contact-box">
+
+            <input type="text"
+                   class="form-control"
+                   placeholder="Your Name">
+
+            <input type="email"
+                   class="form-control"
+                   placeholder="Your Email">
+
+            <textarea class="form-control"
+                      rows="5"
+                      placeholder="Your Message"></textarea>
+
+            <button class="btn-custom w-100">
+                Send Message
+            </button>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- Footer -->
+<footer>
+    <p>© 2026 Shoaib | Computer Skills Portfolio</p>
+</footer>
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
